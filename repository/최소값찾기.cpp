@@ -15,21 +15,25 @@
 using namespace std;
 using Node = pair<int, int>;
 
-int main() {
+int main()
+{
     int N, L;
     cin >> N >> L;
     deque<Node> mydeque;
 
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         int now;
         cin >> now;
 
-        while(mydeque.size() && mydeque.back().first > now) {
+        while (mydeque.size() && mydeque.back().first > now)
+        {
             mydeque.pop_back();
         }
         mydeque.push_back(Node(now, i));
 
-        if (mydeque.front().second <= i - L) {
+        if (mydeque.front().second <= i - L)
+        {
             mydeque.pop_front();
         }
         cout << mydeque.front().first << ' ';
